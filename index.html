@@ -5,29 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/index.css">
-    <title>Document</title>
+    <title>Calculator</title>
 </head>
 <body>
-	<input type="text" id="inputExpression" placeholder="Input the expression">=
-	<input type="button" id="result" value="Result">
-    <br>
-		<!--<input type="button" id="button0" value="0">
-		<input type="button" id="button1" value="1">
-		<input type="button" id="button2" value="2">
-		<input type="button" id="button3" value="3">
-		<input type="button" id="button4" value="4">
-		<input type="button" id="button5" value="5">
-		<input type="button" id="button6" value="6">
-		<input type="button" id="button7" value="7">
-		<input type="button" id="button8" value="8">
-		<input type="button" id="button9" value="9">
+    <section>
+        <textarea id="inputExpression" placeholder="Input the expression"></textarea>
+        =
+        <span id="result">Result</span>
         <br>
-		<input type="button" id="buttonPlus" value="+">
-		<input type="button" id="buttonMinus" value="-">
-		<input type="button" id="buttonMultiply" value="*">
-		<input type="button" id="buttonShare" value="/">
-        -->
-    <button value="Reset input" id="reset">
+        <button id="displayKeyboard">Add keyboard</button>
+        <div id="keyboard">
+            <button id="0">0</button>
+            <button id="1">1</button>
+            <button id="2">2</button>
+            <button id="3">3</button>
+            <button id="4">4</button>
+            <button id="5">5</button>
+            <button id="6">6</button>
+            <button id="7">7</button>
+            <button id="8">8</button>
+            <button id="9">9</button>
+            <button id="+">+</button>
+            <button id="-">-</button>
+            <button id="*">*</button>
+            <button id="/">/</button>
+            <button id="Qrt">Qrt</button>
+            <button id="Sqrt">Sqrt</button>
+        </div>
+        <button id="reset">Reset input</button>
+    </section>
     <script src="js/index.js"></script>
 </body>
 </html>

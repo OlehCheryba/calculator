@@ -1,8 +1,12 @@
-let marks = ['+', '-', '*', '/'];
-let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+let marks = ['+', '-', '*', '/', '^'];
+let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
+document.querySelector('#keyboard').style.display = 'none';
+document.querySelector('#reset').addEventListener("click", () => {
+
+});
 document.querySelector('#reset').addEventListener("click", () => {
     document.querySelector('#inputExpression').value = '';
-    document.querySelector('#result').value = 'Result'
+    document.querySelector('#result').innerHTML = 'Result'
 });
 document.querySelector('#inputExpression').addEventListener("input", calculate);
 function calculate() {
@@ -22,7 +26,7 @@ function calculate() {
     });
     if (okArr[0] === '') {
         document.querySelector('#inputExpression').value = '';
-        document.querySelector('#result').value = 'Result';
+        document.querySelector('#result').innerHTML = 'Result';
         return;
     }
     console.log(okArr);
@@ -30,7 +34,18 @@ function calculate() {
     let num=0;
     try {
         for (let i = 0; ; i++) {
-            if (okArr[i] == undefined) break;
+            if (!(okArr.includes('^'))) break;
+            if (okArr[i] == '^') {
+                if (okArr[i+1] === '') {
+                    throw new Error('Can not be calculated')
+                }
+                num = Math.pow(Number(okArr[i - 1]),  Number(okArr[i + 1]));
+                okArr.splice(i - 1, 3, num);
+                i--;
+            }
+        }
+        for (let i = 0; ; i++) {
+            if (!(okArr.includes('/')) && !(okArr.includes('*'))) break;
             if (okArr[i] == '*' || okArr[i] == '/')  {
                 if (okArr[i] == '*') {
                     if (okArr[i+1] === '') {
@@ -50,9 +65,8 @@ function calculate() {
                 i--
             }
         }
-
         for (let i = 0; ; i++) {
-            if (okArr[i] == undefined) break;
+            if (!(okArr.includes('-')) && !(okArr.includes('+'))) break;
             if (numbers.includes(okArr[i])) okArr[i] = +okArr[i];
             if (okArr[i] == '+' || okArr[i] == '-') {
                 if (okArr[i] == '+') num = Number(okArr[i - 1]) + Number(okArr[i + 1]);
@@ -63,9 +77,6 @@ function calculate() {
                 i--
             }
         }
-
-    document.querySelector('#result').value = okArr.join('');
-    } catch(e) {
-        document.querySelector('#result').value = e;
-    }
+        document.querySelector('#result').innerHTML = okArr.join('');
+    } catch(e) {document.querySelector('#result').innerHTML = e;}
 }
