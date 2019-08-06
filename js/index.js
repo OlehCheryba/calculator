@@ -21,6 +21,7 @@ function calculate() {
         }
     });
     if (okArr[0] === '') {
+        document.querySelector('#inputExpression').value = '';
         document.querySelector('#result').value = 'Result';
         return;
     }
@@ -63,7 +64,7 @@ function calculate() {
             }
         }
 
-        document.querySelector('#result').value = okArr.join('');
+    document.querySelector('#result').value = okArr.join('');
     } catch(e) {
         document.querySelector('#result').value = e;
     }
