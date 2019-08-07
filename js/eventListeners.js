@@ -1,7 +1,4 @@
-const input = document.querySelector('#inputEx');
-const result = document.querySelector('#result');
 document.querySelector('#showKeyboard').addEventListener('click', () => {
-    let keyboard = document.querySelector('#keyboard').style;
     if (keyboard.display === 'none') {
         document.querySelector('#showKeyboard').innerHTML = 'Hide keyboard';
         keyboard.display = 'block';
@@ -51,7 +48,11 @@ document.querySelector('#reset').addEventListener('click', () => {
     input.value = '';
     result.innerHTML = 'Result';
 });
-document.querySelector('#inputEx').addEventListener('input', calculate);
+document.querySelector('#deleteOne').addEventListener('click', () => {
+    input.value = input.value.split('').slice(0, input.value.length - 1);
+    calculate();
+});
+input.addEventListener('input', calculate);
 document.querySelector('#addResult').addEventListener('click', () => {
     if (result.innerHTML.split('').every(el => numbers.includes(el))) {
         input.value = result.innerHTML;
