@@ -9,31 +9,39 @@
 </head>
 <body>
     <section>
-        <textarea id="inputExpression" placeholder="Input the expression"></textarea>
+        <textarea id="inputEx" placeholder="Input the expression"></textarea>
         =
         <span id="result">Result</span>
         <br>
-        <button id="displayKeyboard">Add keyboard</button>
+        <button id="showKeyboard">Add keyboard</button>
+        <button id="reset">Reset input</button>
+        <button id="addResult">Move result to input field</button>
         <div id="keyboard">
-            <button id="0">0</button>
-            <button id="1">1</button>
-            <button id="2">2</button>
-            <button id="3">3</button>
-            <button id="4">4</button>
-            <button id="5">5</button>
-            <button id="6">6</button>
-            <button id="7">7</button>
-            <button id="8">8</button>
             <button id="9">9</button>
+            <button id="8">8</button>
+            <button id="7">7</button>
+            <br>
+            <button id="6">6</button>
+            <button id="5">5</button>
+            <button id="4">4</button>
+            <br>
+            <button id="3">3</button>
+            <button id="2">2</button>
+            <button id="1">1</button>
+            <br>
+            <button id=".">.</button>
+            <button id="0">0</button>
+            <br>
             <button id="+">+</button>
             <button id="-">-</button>
             <button id="*">*</button>
+            <br>
             <button id="/">/</button>
-            <button id="Qrt">Qrt</button>
-            <button id="Sqrt">Sqrt</button>
+            <button id="toSquare">x²</button>
+            <button id="toSqrt">√</button>
         </div>
-        <button id="reset">Reset input</button>
     </section>
     <script src="js/index.js"></script>
+    <script src="js/eventListeners.js"></script>
 </body>
 </html>
