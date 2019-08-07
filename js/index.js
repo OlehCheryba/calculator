@@ -2,72 +2,57 @@ const marks = ['+', '-', '*', '/', '^'], numbers = ['0', '1', '2', '3', '4', '5'
 const input = document.querySelector('#inputEx'), result = document.querySelector('#result'), keyboard = document.querySelector('#keyboard').style;
 
 keyboard.display = 'none';
-function calculate() {
-    let inputEx = input.value.split(''), okArr = ['',],  number = 0;
-    inputEx = inputEx.filter(el => marks.includes(el) || numbers.includes(el));
-    inputEx.forEach((el, ind) => {
-        if (el === '.' && !(inputEx[ind + 1] == '.') && !marks.includes(inputEx[ind + 1]) && ind !== 0 && !okArr[okArr.length - 1].includes('.'))
-            marks.includes(inputEx[ind - 1]) ? okArr[okArr.length - 1] += '0' + el : okArr[okArr.length - 1] += el;
-        else if (numbers.includes(el) && el !== '.')
-            okArr[okArr.length - 1] += el
-        else if (marks.includes(el)) {
-            if (!marks.includes(inputEx[ind + 1]) && ind != 0) {
-                okArr.push(el);
-                okArr.push('');
-            }
+const calculate = () => {
+    let exp = [''],  number = 0;
+    input.value.split('').filter(el => marks.includes(el) || numbers.includes(el)).forEach((el, ind, arr) => {
+        if (el === '.' && !(arr[ind + 1] === '.') && !marks.includes(arr[ind + 1]) && ind !== 0 && !exp[exp.length - 1].includes('.'))
+            marks.includes(arr[ind - 1]) ? exp[exp.length - 1] += '0' + el : exp[exp.length - 1] += el;
+        else if (numbers.includes(el) && el !== '.') exp[exp.length - 1] += el;
+        else if (marks.includes(el) && !marks.includes(arr[ind + 1]) && ind !== 0) {
+            exp.push(el);
+            exp.push('');
         }
     });
-    if (okArr[0] === '') {
+    if (exp[0] === '') {
         input.value = '';
         result.innerHTML = 'Result';
         return;
     }
-    input.value = okArr.join('');
+    input.value = exp.join('');
     try {
         for (let i = 0; ; i++) {
-            if (!okArr.includes('^')) break;
-            if (okArr[i] == '^') {
-                if (okArr[i+1] === '') {
-                    throw new Error();
-                }
-                number = Math.pow(Number(okArr[i - 1]), Number(okArr[i + 1]));
-                okArr.splice(i - 1, 3, number);
+            if (!exp.includes('^')) break;
+            if (exp[i + 1] === '') throw new Error();
+            if (exp[i] === '^') {
+                number = Math.pow(+exp[i - 1], +exp[i + 1]);
+                exp.splice(i - 1, 3, number);
                 i--;
             }
         }
         for (let i = 0; ; i++) {
-            if (!(okArr.includes('/') || okArr.includes('*'))) break;
-            if (okArr[i] == '*' || okArr[i] == '/')  {
-                if (okArr[i] == '*') {
-                    if (okArr[i+1] === '') {
-                        throw new Error();
-                    }
-                    number = Number(okArr[i - 1]) * Number(okArr[i + 1]);
+            if (!(exp.includes('/') || exp.includes('*'))) break;
+            if (exp[i] === '*' || exp[i] === '/')  {
+                if (exp[i+1] === '') throw new Error();
+                if (exp[i] === '*' ) number = +exp[i - 1] * +exp[i + 1];
+                else if (exp[i] === '/') {
+                    if (exp[i + 1] === '0') throw new Error();
+                    else number = +exp[i - 1] / +exp[i + 1];
                 }
-                else if (okArr[i] == '/') {
-                    if (okArr[i+1] === '' || okArr[i+1] === '0') {
-                        throw new Error();
-                    }
-                    number = Number(okArr[i - 1]) / Number(okArr[i + 1]);
-                }
-                okArr.splice(i - 1, 3, number)
-                i--
+                exp.splice(i - 1, 3, number);
+                i--;
             }
         }
         for (let i = 0; ; i++) {
-            if (!(okArr.includes('-') || okArr.includes('+'))) break;
-            if (numbers.includes(okArr[i])) okArr[i] = +okArr[i];
-            if (okArr[i] == '+' || okArr[i] == '-') {
-                if (okArr[i] == '+') num = Number(okArr[i - 1]) + Number(okArr[i + 1]);
-
-                else if (okArr[i] == '-') num = Number(okArr[i - 1]) - Number(okArr[i + 1]);
-
-                okArr.splice(i - 1, 3, num)
-                i--
+            if (!(exp.includes('-') || exp.includes('+'))) break;
+            if (exp[i] === '+' || exp[i] === '-') {
+                if (exp[i] === '+') number = +exp[i - 1] + +exp[i + 1];
+                else if (exp[i] === '-') number = +exp[i - 1] - +exp[i + 1];
+                exp.splice(i - 1, 3, number);
+                i--;
             }
         }
-        if (okArr[0] === Infinity) result.innerHTML = 'Too big number';
-        else if (okArr[0] === -Infinity) result.innerHTML = 'Too small number';
-        else result.innerHTML = okArr[0];
+        if (exp[0] === Infinity) result.innerHTML = 'Too big number';
+        else if (exp[0] === -Infinity) result.innerHTML = 'Too small number';
+        else result.innerHTML = exp[0];
     } catch(e) { result.innerHTML = 'Can&nbsp;not&nbsp;be&nbsp;calculated'; }
 }
