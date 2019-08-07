@@ -1,6 +1,4 @@
-const marks = ['+', '-', '*', '/', '^'];
-const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-
+const marks = ['+', '-', '*', '/', '^'], numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
 document.querySelector("#keyboard").style.display = 'none';
 function calculate() {
     let inputEx = document.querySelector('#inputEx').value.split('');
@@ -52,7 +50,6 @@ function calculate() {
                     }
                     number = Number(okArr[i - 1]) * Number(okArr[i + 1]);
                 }
-
                 else if (okArr[i] == '/') {
                     if (okArr[i+1] === '' || okArr[i+1] === '0') {
                         throw new Error('Can&nbsp;not&nbsp;be&nbsp;calculated');
