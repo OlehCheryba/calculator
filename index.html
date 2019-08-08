@@ -8,44 +8,46 @@
     <title>Calculator</title>
 </head>
 <body>
-    <section>
-        <h2>Calculator</h2>
-        <textarea id="inputEx" placeholder="Input the expression"></textarea>
-        =
-        <span id="result">Result</span>
+    <h1>Calculator</h1>
+    <form>
+        <label>
+            <textarea id="inputEx" placeholder="Input the expression"></textarea>
+            =
+            <span id="result">Result<span>
+        </label>
         <br>
-        <button id="reset">Clean input field</button>
+        <input type="button" id="reset" value="Clean input field">
         <br>
-        <button id="addResult">Move result to input field</button>
+        <input type="button" id="addResult" value="Move result to input field">
         <br>
-        <button id="showKeyboard">Show keyboard ▼</button>
+        <input type="button" id="showKeyboard" value="Show keyboard ▼">
         <div id="keyboard">
-            <button id="toСube">x³</button>
-            <button id="toSquare">x²</button>
-            <button id="toSqrt">√</button>
-            <button id="toExtent">^</button>
+            <input type="button" id="toСube" value="x³">
+            <input type="button" id="toSquare" value="x²">
+            <input type="button" id="toSqrt" value="√">
+            <input type="button" id="toExtent" value="^">
             <br>
-            <button id="num7">7</button>
-            <button id="num8">8</button>
-            <button id="num9">9</button>
-            <button id="multiply">*</button>
+            <input type="button" id="num7" value="7">
+            <input type="button" id="num8" value="8">
+            <input type="button" id="num9" value="9">
+            <input type="button" id="multiply" value="*">
             <br>
-            <button id="num4">4</button>
-            <button id="num5">5</button>
-            <button id="num6">6</button>
-            <button id="divide">/</button>
+            <input type="button" id="num4" value="4">
+            <input type="button" id="num5" value="5">
+            <input type="button" id="num6" value="6">
+            <input type="button" id="divide" value="/">
             <br>
-            <button id="num1">1</button>
-            <button id="num2">2</button>
-            <button id="num3">3</button>
-            <button id="add">+</button>
+            <input type="button" id="num1" value="1">
+            <input type="button" id="num2" value="2">
+            <input type="button" id="num3" value="3">
+            <input type="button" id="add" value="+">
             <br>
-            <button id="deleteOne">⌦</button>
-            <button id="num0">0</button>
-            <button id="dot">.</button>
-            <button id="subtract">-</button>
+            <input type="button" id="deleteOne" value="⌦">
+            <input type="button" id="num0" value="0">
+            <input type="button" id="dot" value=".">
+            <input type="button" id="subtract" value="-">
         </div>
-    </section>
+    </form>
     <script src="js/index.js"></script>
     <script src="js/eventListeners.js"></script>
 </body>
