@@ -12,6 +12,10 @@ button {
     min-width: 35px;
 }
 
-#showKeyboard {
-    min-width: 128px;
+section > button {
+    min-width: 176px;
+}
+
+#keyboard {
+    display: none;
 }
