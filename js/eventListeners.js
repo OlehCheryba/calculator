@@ -35,8 +35,8 @@ document.querySelector('#deleteOne').addEventListener('click', () => {
     calculate();
 });
 for (let i = 0; i < 10; i++) {
-    document.querySelector('#num' + String(i)).addEventListener('click', () => {
-        input.value += String(i);
+    document.querySelector('#num' + i).addEventListener('click', () => {
+        input.value += i;
         calculate();
     });
 }
