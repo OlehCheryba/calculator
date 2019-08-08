@@ -19,3 +19,7 @@ form > input {
 #keyboard {
     display: none;
 }
+
+#copyright {
+    font-size: small;
+}
