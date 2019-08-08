@@ -8,46 +8,53 @@
     <title>Calculator</title>
 </head>
 <body>
-    <h1>Calculator</h1>
-    <form>
-        <label>
-            <textarea id="inputEx" placeholder="Input the expression"></textarea>
-            =
-            <span id="result">Result<span>
-        </label>
-        <br>
-        <input type="button" id="reset" value="Clean input field">
-        <br>
-        <input type="button" id="addResult" value="Move result to input field">
-        <br>
-        <input type="button" id="showKeyboard" value="Show keyboard ▼">
-        <div id="keyboard">
-            <input type="button" id="toСube" value="x³">
-            <input type="button" id="toSquare" value="x²">
-            <input type="button" id="toSqrt" value="√">
-            <input type="button" id="toExtent" value="^">
+    <header>
+        <h1>Calculator</h1>
+    </header>
+    <main>
+        <form>
+            <label>
+                <textarea id="inputEx" placeholder="Input the expression"></textarea>
+                =
+                <span id="result">Result</span>
+            </label>
             <br>
-            <input type="button" id="num7" value="7">
-            <input type="button" id="num8" value="8">
-            <input type="button" id="num9" value="9">
-            <input type="button" id="multiply" value="*">
+            <input type="button" id="reset" value="Clean input field">
             <br>
-            <input type="button" id="num4" value="4">
-            <input type="button" id="num5" value="5">
-            <input type="button" id="num6" value="6">
-            <input type="button" id="divide" value="/">
+            <input type="button" id="addResult" value="Move result to input field">
             <br>
-            <input type="button" id="num1" value="1">
-            <input type="button" id="num2" value="2">
-            <input type="button" id="num3" value="3">
-            <input type="button" id="add" value="+">
-            <br>
-            <input type="button" id="deleteOne" value="⌦">
-            <input type="button" id="num0" value="0">
-            <input type="button" id="dot" value=".">
-            <input type="button" id="subtract" value="-">
-        </div>
-    </form>
+            <input type="button" id="showKeyboard" value="Show keyboard ▼">
+            <div id="keyboard">
+                <input type="button" id="toСube" value="x³">
+                <input type="button" id="toSquare" value="x²">
+                <input type="button" id="toSqrt" value="√">
+                <input type="button" id="toExtent" value="^">
+                <br>
+                <input type="button" id="num7" value="7">
+                <input type="button" id="num8" value="8">
+                <input type="button" id="num9" value="9">
+                <input type="button" id="multiply" value="*">
+                <br>
+                <input type="button" id="num4" value="4">
+                <input type="button" id="num5" value="5">
+                <input type="button" id="num6" value="6">
+                <input type="button" id="divide" value="/">
+                <br>
+                <input type="button" id="num1" value="1">
+                <input type="button" id="num2" value="2">
+                <input type="button" id="num3" value="3">
+                <input type="button" id="add" value="+">
+                <br>
+                <input type="button" id="deleteOne" value="⌦">
+                <input type="button" id="num0" value="0">
+                <input type="button" id="dot" value=".">
+                <input type="button" id="subtract" value="-">
+            </div>
+        </form>
+    </main>
+    <footer>
+        <span id="copyright">© Copyright 2019 Oleg Cheryba</span>
+    </footer>
     <script src="js/index.js"></script>
     <script src="js/eventListeners.js"></script>
 </body>
