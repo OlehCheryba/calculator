@@ -1,4 +1,4 @@
-button, span, textarea {
+input, span, textarea {
     margin: 4px;
     vertical-align: middle;
 }
@@ -7,12 +7,12 @@ textarea {
     min-width: 220px;
 }
 
-button {
+input {
     min-height: 25px;
     min-width: 35px;
 }
 
-section > button {
+form > input {
     min-width: 176px;
 }
 
