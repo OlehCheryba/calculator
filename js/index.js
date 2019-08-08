@@ -54,13 +54,3 @@ const calculate = () => {
         else result.innerHTML = exp[0];
     } catch(e) { result.innerHTML = 'Can&nbsp;not&nbsp;be&nbsp;calculated'; }
 }
-function addSymbol () {
-    if (input.value === '') return;
-    input.value += addSymbol.symbol;
-    calculate();
-}
-addSymbol.call = function (str) {
-    this.symbol = str;
-    return this;
-}
-document.querySelector('#toСube').addEventListener('click', addSymbol.call('^3'));
