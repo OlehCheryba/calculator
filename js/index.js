@@ -33,7 +33,7 @@ const calculate = () => {
                 if (exp[i+1] === '') throw new Error();
                 if (exp[i] === '*' ) number = +exp[i - 1] * +exp[i + 1];
                 else if (exp[i] === '/') {
-                    if (exp[i + 1] === '0') throw new Error();
+                    if (+exp[i + 1] === 0) throw new Error();
                     else number = +exp[i - 1] / +exp[i + 1];
                 }
                 exp.splice(i - 1, 3, number);
