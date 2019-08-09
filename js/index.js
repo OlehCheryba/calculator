@@ -3,8 +3,8 @@ const input = document.querySelector('#inputEx'), result = document.querySelecto
 const calculate = () => {
     let exp = [''],  number = 0;
     input.value.split('').filter(el => marks.includes(el) || numbers.includes(el)).forEach((el, ind, arr) => {
-        if (el === '.' && !(arr[ind + 1] === '.' && marks.includes(arr[ind + 1]) && ind === 0 && exp[exp.length - 1].includes('.')))
-            marks.includes(arr[ind - 1]) ? exp[exp.length - 1] += '0' + el : exp[exp.length - 1] += el;
+        if (el === '.' && !(arr[ind + 1] === '.') && !marks.includes(arr[ind + 1]) && ind !== 0 && !exp[exp.length - 1].includes('.'))
+            marks.includes(arr[ind - 1]) ? exp[exp.length - 1] += 0 + el : exp[exp.length - 1] += el;
         else if (numbers.includes(el) && el !== '.') exp[exp.length - 1] += el;
         else if (marks.includes(el) && !marks.includes(arr[ind + 1]) && ind !== 0) {
             exp.push(el);
