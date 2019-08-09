@@ -18,7 +18,7 @@ document.querySelector('#addResult').addEventListener('click', () => {
     }
 });
 document.querySelector('#showKeyboard').addEventListener('click', () => {
-    document.querySelector('#showKeyboard').innerHTML = keyboard.display === 'block' ? 'Show keyboard ▼' : 'Hide keyboard ▲';
+    document.querySelector('#showKeyboard').value = keyboard.display === 'block' ? 'Show keyboard ▼' : 'Hide keyboard ▲';
     keyboard.display = keyboard.display === 'block' ? 'none' : 'block';
 });
 document.querySelector('#toСube').addEventListener('click', () => addSymbol('^3'));
