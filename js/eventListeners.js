@@ -18,8 +18,8 @@ document.querySelector('#addResult').addEventListener('click', () => {
     }
 });
 document.querySelector('#showKeyboard').addEventListener('click', () => {
-    document.querySelector('#showKeyboard').value = keyboard.display === 'block' ? 'Show keyboard ▼' : 'Hide keyboard ▲';
-    keyboard.display = keyboard.display === 'block' ? 'none' : 'block';
+    document.querySelector('#showKeyboard').value = keyboardStyle.display === 'block' ? 'Show keyboard ▼' : 'Hide keyboard ▲';
+    keyboardStyle.display = keyboardStyle.display === 'block' ? 'none' : 'block';
 });
 document.querySelector('#toСube').addEventListener('click', () => addSymbol('^3'));
 document.querySelector('#toSquare').addEventListener('click', () => addSymbol('^2'));
