@@ -1,5 +1,8 @@
-const marks = ['+', '-', '*', '/', '^'], numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-const input = document.querySelector('#inputEx'), result = document.querySelector('#result'), keyboard = document.querySelector('#keyboard').style;
+const marks = ['+', '-', '*', '/', '^']
+    , numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
+const input = document.querySelector('#inputEx')
+    , result = document.querySelector('#result')
+    , keyboardStyle = document.querySelector('#keyboard').style;
 const calculate = () => {
     let exp = [''],  number = 0;
     input.value.split('').filter(el => marks.includes(el) || numbers.includes(el)).forEach((el, ind, arr) => {
